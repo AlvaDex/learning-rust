@@ -33,8 +33,8 @@ rust-learning/
 ## 🗺️ Temario y Control de Progreso
 
 ### Seccion 1: Primeros pasos
-- [ ] **Leccion 01:** Hola Rust y configuracion
-- [ ] **Leccion 02:** Variables y mutabilidad (`let`, `mut`, `const`)
+- [X] **Leccion 01:** Hola Rust y configuracion
+- [X] **Leccion 02:** Variables y mutabilidad (`let`, `mut`, `const`)
 - [ ] **Leccion 03:** Tipos de datos escalares y compuestos
 - [ ] **Leccion 04:** Funciones, sentencias y expresiones
 - [ ] **Leccion 05:** Control de flujo (`if`, `loop`, `while`, `for`)
