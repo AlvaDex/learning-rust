@@ -24,6 +24,7 @@ learning-rust/
 │   ├── hola-rust/
 │   ├── variables-mutabilidad/
 │   └── tipos-de-datos/
+│   └── control-de-flujo/
 ├── notas/
 │   └── glosario-y-errores-frecuentes.md
 └── README.md
@@ -38,8 +39,8 @@ learning-rust/
 - [x] Lección 02: Variables y mutabilidad (`let`, `mut`, `const`)
 - [x] Lección 03: Tipos de datos
 - [X] Lección 04: Funciones y expresiones
-- [ ] Lección 05: Control de flujo (`if`, `loop`, `while`, `for`)
-- [ ] Examen de Primeros pasos
+- [X] Lección 05: Control de flujo (`if`, `loop`, `while`, `for`)
+- [X] Examen de Primeros pasos
 
 ### Sección 2: Ownership y préstamos
 - [ ] Lección 06: Ownership

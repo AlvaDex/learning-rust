@@ -35,6 +35,13 @@ Notas de referencia rápida basadas en las prácticas de [Aprende Rust](https://
 - **Tipo unidad `()`:** Es el valor por defecto que retornan las funciones sin anotación `-> Tipo` (o con `-> ()`); representa la ausencia de un valor útil.
 - **Parámetros y retornos tipados:** En Rust la firma de una función siempre exige declarar el tipo de cada parámetro (`nombre: &str, puntos: u32`) y, si retorna algo distinto de `()`, el tipo tras `->`.
 
+### Control de flujo
+- **`if` / `else if` / `else`:** Evalúa condiciones booleanas (no requiere paréntesis alrededor de la condición) y también funciona como **expresión**, siempre que todas las ramas devuelvan el mismo tipo (`let entrada = if edad >= 18 { "general" } else { "reducida" };`).
+- **`loop`:** Bucle infinito que se detiene con `break`. Puede devolver un valor hacia afuera usando `break <expresión>;` dentro de una asignación (`let resultado = loop { ... };`).
+- **`while`:** Ejecuta el bloque mientras una condición booleana sea verdadera.
+- **`for`:** Itera de forma segura sobre rangos (`1..4` excluye el límite superior; `1..=3` lo incluye), iteradores invertidos (`.rev()`) y colecciones/arrays (`for lenguaje in lenguajes`).
+- **Etiquetas de bucle (`'etiqueta`):** Permiten indicar exactamente qué bucle romper (`break 'externo;`) o continuar cuando hay bucles anidados.
+
 ---
 
 ## ⚠️ Errores Frecuentes del Compilador
@@ -44,8 +51,8 @@ Notas de referencia rápida basadas en las prácticas de [Aprende Rust](https://
 - **Solución:** Cambia `let x = ...` a `let mut x = ...` si el valor debe cambiar, o usa *shadowing* (`let x = ...`) si vas a crear un nuevo enlace.
 
 ### Mismatched types (`E0308`)
-- **Causa:** Asignar o comparar valores de tipos incompatibles (por ejemplo, asignar un string a una variable inferida como `i32`, o sumar `i32` con `u32` sin convertir).
-- **Solución:** Verifica la anotación de tipo o convierte explícitamente con `as` cuando corresponda.
+- **Causa:** Asignar o comparar valores de tipos incompatibles (por ejemplo, asignar un string a una variable inferida como `i32`, sumar `i32` con `u32` sin convertir, o devolver `()` por poner `;` al final de una expresión de retorno).
+- **Solución:** Verifica la anotación de tipo, revisa si un `;` está convirtiendo la última expresión en sentencia o convierte explícitamente con `as` cuando corresponda.
 
 ### Integer overflow / panic o resultado inesperado en `as`
 - **Causa:** Superar el rango de un tipo entero (`u8` va de `0` a `255`) o forzar `as` hacia un tipo más pequeño.
