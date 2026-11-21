@@ -35,7 +35,7 @@ rust-learning/
 ### Seccion 1: Primeros pasos
 - [X] **Leccion 01:** Hola Rust y configuracion
 - [X] **Leccion 02:** Variables y mutabilidad (`let`, `mut`, `const`)
-- [ ] **Leccion 03:** Tipos de datos escalares y compuestos
+- [X] **Leccion 03:** Tipos de datos escalares y compuestos
 - [ ] **Leccion 04:** Funciones, sentencias y expresiones
 - [ ] **Leccion 05:** Control de flujo (`if`, `loop`, `while`, `for`)
 - [ ] **Examen 01:** Evaluacion de Primeros Pasos
@@ -143,3 +143,13 @@ git push origin main
 - **Shadowing (sombreado):** Permite declarar una nueva variable con el mismo nombre usando `let`, pudiendo incluso cambiar su tipo (por ejemplo, de `&str` a `usize`), sin necesidad de usar `mut`.
 - **Ámbito de bloque (`{}`):** Las variables declaradas dentro de un bloque `{}` solo existen dentro de ese bloque y se destruyen al salir de él.
 - **Legibilidad numérica:** Se puede usar `_` como separador visual en literales numéricos (`1_000_000` equivale a `1000000`) sin afectar el valor.
+- **Tipos escalares:** Representan un único valor:
+  - **Enteros:** Con signo (`i8`, `i16`, `i32`, `i64`, `i128`, `isize`) y sin signo (`u8`, `u16`, `u32`, `u64`, `u128`, `usize`). Por defecto Rust infiere `i32`. La división entre enteros trunca los decimales (`7 / 2 == 3`).
+  - **Desbordamiento (*overflow*):** Se puede controlar explícitamente con métodos como `.wrapping_add()` (da la vuelta al rango) o `.saturating_add()` (se detiene en el límite `MIN`/`MAX`).
+  - **Flotantes:** `f32` y `f64` (por defecto `f64` por mayor precisión).
+  - **Booleanos (`bool`):** `true` o `false`, combinables con operadores lógicos (`&&`, `||`, `!`).
+  - **Caracteres (`char`):** Se escriben con comillas simples `'...'` y ocupan 4 bytes (soportan cualquier carácter Unicode, incluidos acentos, símbolos y emojis).
+- **Tipos compuestos:** Agrupan múltiples valores en uno solo:
+  - **Tuplas (`(T1, T2, ...)`):** Longitud fija y tipos heterogéneos. Se accede por índice (`tupla.0`) o mediante desestructuración (`let (a, b) = tupla;`).
+  - **Arrays (`[T; N]`):** Longitud fija y todos los elementos del mismo tipo, almacenados en el *stack*. Se imprimen en depuración con `{:?}`.
+- **Conversión explícita (`as`):** Rust no hace conversiones numéricas implícitas; se usa `as` (`total as f64`), teniendo cuidado con el truncamiento o desbordamiento al pasar a tipos más pequeños (como `300_i32 as u8 == 44`).
