@@ -1,0 +1,1 @@
+C:\Users\lenovo\Downloads\learning-rust\01-primeros-pasos\funciones-expresiones\target\debug\funciones-expresiones.exe: C:\Users\lenovo\Downloads\learning-rust\01-primeros-pasos\funciones-expresiones\src\main.rs

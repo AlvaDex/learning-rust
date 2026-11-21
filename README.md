@@ -37,7 +37,7 @@ learning-rust/
 - [x] Lección 01: Hola Rust y configuración
 - [x] Lección 02: Variables y mutabilidad (`let`, `mut`, `const`)
 - [x] Lección 03: Tipos de datos
-- [ ] Lección 04: Funciones y expresiones
+- [X] Lección 04: Funciones y expresiones
 - [ ] Lección 05: Control de flujo (`if`, `loop`, `while`, `for`)
 - [ ] Examen de Primeros pasos
 

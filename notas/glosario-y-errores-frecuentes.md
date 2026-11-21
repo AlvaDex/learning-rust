@@ -29,6 +29,12 @@ Notas de referencia rápida basadas en las prácticas de [Aprende Rust](https://
 - **Arrays (`[T; N]`):** Colección de tamaño fijo con elementos del mismo tipo en el *stack*. Se imprimen en formato depuración con `{:?}`.
 - **Conversión explícita (`as`):** Rust no convierte tipos numéricos implícitamente; `as` fuerza la conversión (`total as f64`), pudiendo truncar decimales (`3.99 as i32 == 3`) o desbordar bits en tipos estrechos (`300_i32 as u8 == 44`).
 
+### Funciones y expresiones
+- **Expresiones vs. sentencias:** Una **expresión** evalúa a un valor y **no** lleva punto y coma (`;`) al final (`x + 1`). Agregar `;` convierte una expresión en una **sentencia**, cuyo valor es `()` (unidad) y puede provocar un error de tipos (`E0308`) si esperabas devolver un valor.
+- **Retorno de funciones:** La última expresión del cuerpo de una función se devuelve implícitamente sin necesidad de escribir `return`. Usa `return` para salidas anticipadas (por ejemplo, devolver `0` si el divisor es `0`).
+- **Tipo unidad `()`:** Es el valor por defecto que retornan las funciones sin anotación `-> Tipo` (o con `-> ()`); representa la ausencia de un valor útil.
+- **Parámetros y retornos tipados:** En Rust la firma de una función siempre exige declarar el tipo de cada parámetro (`nombre: &str, puntos: u32`) y, si retorna algo distinto de `()`, el tipo tras `->`.
+
 ---
 
 ## ⚠️ Errores Frecuentes del Compilador
