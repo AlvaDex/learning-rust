@@ -3,41 +3,46 @@ const SEGUNDOS_POR_HORA: u32 = 60 * 60;
 const MAX_VIDAS: u32 = 3;
 
 fn main() {
-    // Rust puede inferir el tipo, aunque también se puede declarar explícitamente
-    let edad: i32 = 7;
-    println!("Edad: {edad}");
+    // 1. Inmutabilidad por defecto e inferencia/anotación de tipo
+    let edad: i32 = 7; // Rust infiere tipos, pero podemos anotarlos explícitamente
+    println!("Edad inicial: {edad}");
 
-    // `mut` permite cambiar el valor (no el tipo); úsalo solo cuando haga falta
+    // 2. Variables mutables con `mut` (mismo tipo, distinto valor)
+    println!("\n--- Mutabilidad con `mut` ---");
     let mut puntos = 10;
-    println!("Puntos: {puntos}");
+    println!("Puntos iniciales: {puntos}");
 
     puntos = 20;
-    println!("Puntos: {puntos}");
+    println!("Tras reasignar:   {puntos}");
 
     puntos += 5;
-    println!("Puntos: {puntos}");
+    println!("Tras sumar += 5:  {puntos}");
 
-    // Shadowing: redeclarar con `let` crea una nueva variable en el mismo ámbito
+    // 3. Shadowing: redeclarar con `let` en el mismo ámbito
+    println!("\n--- Shadowing (mismo tipo) ---");
     let x = 5;
-    let x = x + 1;
-    let x = x * 2;
-    println!("x vale {x}");
+    let x = x + 1; // 6
+    let x = x * 2; // 12
+    println!("Valor final de x: {x}");
 
-    // Shadowing también permite cambiar el tipo del valor
-    let espacios = "    ";
-    let espacios = espacios.len();
-    println!("Hay {espacios} espacios");
+    // Shadowing permitiendo cambiar el tipo de la variable
+    println!("\n--- Shadowing (cambio de tipo) ---");
+    let espacios = "    ";        // &str
+    let espacios = espacios.len(); // usize
+    println!("Cantidad de espacios: {espacios}");
 
-    // Uso de constantes
+    // 4. Uso de constantes globales
+    println!("\n--- Constantes ---");
     println!("Una hora tiene {SEGUNDOS_POR_HORA} segundos");
     println!("Empiezas con {MAX_VIDAS} vidas");
 
-    // Alcance (scope): `y` y el `x` interno solo viven dentro del bloque `{}`
+    // 5. Alcance (scope) con bloques `{}`
+    println!("\n--- Ámbito de bloque (`{}`) ---");
     let x = 5;
     {
-        let x = x * 10;
-        let y = 1;
-        println!("Dentro: x = {x}, y = {y}");
+        let x = x * 10; // Sombrea `x` solo dentro de este bloque
+        let y = 1;      // `y` deja de existir al cerrar la llave
+        println!("Dentro del bloque -> x: {x}, y: {y}");
     }
-    println!("Fuera: x = {x}");
+    println!("Fuera del bloque  -> x: {x}");
 }
